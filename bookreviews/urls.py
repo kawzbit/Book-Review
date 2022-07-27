@@ -25,11 +25,12 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', bookViews.home, name = "home"),
-    path('about/', bookViews.about, name = "about"),
-    path('signup/', bookViews.signup, name = "signup"),
+    path('', bookViews.home, name = 'home'),
+    path('about/', bookViews.about, name = 'about'),
+    path('signup/', bookViews.signup, name = 'signup'),
     path('news/', include('news.urls')),
     path('book/', include('book.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,document_root= settings.MEDIA_ROOT)
