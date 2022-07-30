@@ -6,6 +6,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import redirect
 from django.db import IntegrityError
 
+from django.contrib.auth.decorators import login_required
+
 def signupaccount(request):
 
     if request.method == 'GET':
@@ -26,6 +28,8 @@ def signupaccount(request):
 def loginaccount(request):
     if request.method=='GET':
         return render(request,"login.html",{"form":AuthenticationForm})
+
+@login_required
 def logoutaccount(request):
     logout(request)
     return redirect('home')
