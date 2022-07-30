@@ -1,4 +1,4 @@
-from distutils.command import upload
+
 from django.db import models
 from django.contrib.auth.models import User 
 
@@ -10,15 +10,17 @@ class Book(models.Model):
     url = models.URLField(blank= True)
 
 
-class Review(models.Models):
+class Review(models.Model):
     text = models.CharField(max_length=100)
     date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     book = models.ForeignKey(Book,on_delete=models.CASCADE)
+    top_rating = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.text
 
-        
+
 
   

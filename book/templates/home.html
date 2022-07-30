@@ -22,14 +22,14 @@
             {% for book in books %}        
             <div v-for="book in books" class="col">          
                 <div class="card h-100">            
-                    <img class="card-img-top" src="{{book.image.url }}" />            
-                    <div class="card-body">              
-                        <h5 class="card-title fw-bold">{{ book.title}}</h5>              
+                    <img class="card-img-top" src="{{ book.image.url }}" />            
+                    <div class="card-body">
+                        <a href="{% url 'detail' book.id %}"></a>              
+                        <h5 class="card-title fw-bold">{{ book.title }}</h5>              
                         <p class="card-text">{{ book.description}}</p>              
                         {% if book.url %}              
                         <a href="{{ book.url }}" class="btn btn-primary">  Book Link  </a>              
-                        {% endif %}           
-                         
+                        {% endif %}            
                     </div>        
                 </div>
             </div>
